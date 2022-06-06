@@ -1,10 +1,15 @@
-const ItemListenContainer = (props) =>{
-    console.log(props)
+import Titulo from "./Titulo/Titulo"
+
+function ItemListenContainer(){
     return(
         <>
-            <h2>Productos</h2>
+        <div>
+            <Titulo titulo={"HOLA"} subtitulo={"asdas"}/>
+            
+        </div>
         </>
     )
+
 }
 
-export default ItemListenContainer  
+export default ItemListenContainer
