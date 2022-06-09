@@ -1,4 +1,4 @@
-const productos=[
+let productos=[
     {
         "id":1,
         "nombre": "Motorola e20",

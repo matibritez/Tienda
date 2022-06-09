@@ -1,20 +1,20 @@
 import React from "react";
+import Card from 'react-bootstrap/Card'
 
-function Item({ productos }) {
+
+
+function Item({ productos }){
     return (
-       <article className="celular__card">
-          <div className="container__img">
-             <img src={productos.img}alt="" className="celular__img" />
-          </div>
-          <span className="celular__name">{`${productos.nombre}`}</span>
-          <span className="celular__price">$ {`${productos.price}`}</span>
-          <button className="learn-more">
-             <span className="circle" aria-hidden="true">
-                <span className="icon arrow"></span>
-             </span>
-            </button>
-       </article>
-    );
- }
- 
- export default Item;
+       <div className="col-12 mb-2 col-md-4">
+         <Card>
+            <Card.Img className="img-card-top" src={productos.img}/>
+            <Card.Body>
+              <Card.Title>{productos.nombre}</Card.Title>
+              <button>Ver detalles</button>
+            </Card.Body>
+          </Card>
+      </div>
+   
+)}
+
+export default Item;
