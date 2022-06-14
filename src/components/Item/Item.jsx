@@ -1,12 +1,13 @@
 import React from "react";
 
 
+
 function Item({ productos }){
     return (
       <div            
-      className='col-md-4 p-1'                                                           
+      className='cards col-md-4 d-inline-block '                                                           
   >      
-    <div className="card w-100 ">
+    <div className="card w-100">
          <div className="card-header">
                     {`${productos.nombre}`}
                 </div>
