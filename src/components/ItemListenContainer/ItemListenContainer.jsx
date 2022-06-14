@@ -1,5 +1,5 @@
 // import Titulo from "./Titulo/Titulo"
-// import ItemCount from "./Count/ItemCount"
+
 import { getFetch } from "../../helpers/getFetch"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList/ItemList"
@@ -20,7 +20,7 @@ function ItemListenContainer(){
 
     // console.log(productos)
     return(
-        <div>
+        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
             { loading ?
             <h1>Cargando</h1>
             :

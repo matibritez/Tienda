@@ -1,19 +1,27 @@
 import React from "react";
-import Card from 'react-bootstrap/Card'
-
 
 
 function Item({ productos }){
     return (
-       <div className="col-12 mb-2 col-md-4">
-         <Card>
-            <Card.Img className="img-card-top" src={productos.img}/>
-            <Card.Body>
-              <Card.Title>{productos.nombre}</Card.Title>
-              <button>Ver detalles</button>
-            </Card.Body>
-          </Card>
+      <div            
+      className='col-md-4 p-1'                                                           
+  >      
+    <div className="card w-100 ">
+         <div className="card-header">
+                    {`${productos.nombre}`}
+                </div>
+                <div className="card-body">
+                    <img src={productos.img} alt='' className='w-50' />
+                                                                               
+                </div>
+                <div className="card-footer">  
+                    <button className="btn btn-outline-primary btn-block">
+                        Ver Detalle
+                    </button>                
+                </div>
+
       </div>
+    </div>
    
 )}
 

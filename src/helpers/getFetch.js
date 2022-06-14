@@ -50,3 +50,22 @@ export const getFetch=() =>{
         },2000)
     })
 }
+
+//Consulta de un producto
+
+let producto=
+    {
+        id:1,
+        nombre: "Motorola e20",
+        price: 35000,
+        img:"https://www.cetrogar.com.ar/media/catalog/product/2/0/2021_aruba_basic_pack_graphite_gray_frontback.png?width=500&height=500&canvas=500:500&quality=80&bg-color=255,255,255&fit=bounds",
+        stock:2
+    }
+
+    export const getFetchOne=() =>{
+        return new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve(producto)
+            },2000)
+        })
+    }

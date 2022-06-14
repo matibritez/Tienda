@@ -20,7 +20,7 @@ function navBar(){
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#hola"><CartWidget/></Nav.Link>
+                    <Nav.Link to="/cart"><CartWidget/></Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
