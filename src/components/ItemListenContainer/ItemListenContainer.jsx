@@ -3,22 +3,36 @@
 import { getFetch } from "../../helpers/getFetch"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList/ItemList"
+import { useParams } from "react-router-dom"
 
-function ItemListenContainer(){
+const ItemListenContainer =() => {
     const[productos,setProductos]= useState([])
-    const[loading,setLoading]= useState(true) 
+    const[loading,setLoading]= useState(true)
+    
+    const {categoriaId} = useParams()
+
+    console.log(categoriaId)
 
     
     useEffect(()=>{
-        getFetch()
-        .then((resp)=>{ 
-            setProductos(resp)
-        })
-        .catch(err=>console.log(err))
-        .finally(()=> setLoading(false))
-    },[])
+        if (categoriaId) {
+            getFetch()
+            .then((resp)=> {
+                    setProductos(resp.filter(producto => producto.categoria === categoriaId ))
+                    setLoading(false)
+            })
+            .catch(err => console.log(err))           
+        } else {
+            getFetch()
+            .then( (resp)=> setProductos(resp) )
+            .catch(err => console.log(err)) 
+            .finally(()=> setLoading(false))           
+        }
+        
+       
+    }, [categoriaId])
 
-    // console.log(productos)
+   
     return(
         <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
             { loading ?

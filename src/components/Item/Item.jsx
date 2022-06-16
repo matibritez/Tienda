@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 
 
 function Item({ productos }){
@@ -15,10 +15,12 @@ function Item({ productos }){
                     <img src={productos.img} alt='' className='w-50' />
                                                                                
                 </div>
-                <div className="card-footer">  
+                <div className="card-footer">
+                    <Link to ={`/detalle/${productos.id}`}>
                     <button className="btn btn-outline-primary btn-block">
                         Ver Detalle
-                    </button>                
+                    </button>   
+                    </Link>           
                 </div>
 
       </div>

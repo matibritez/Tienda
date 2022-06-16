@@ -1,5 +1,10 @@
+.container a{
+    text-decoration: none;
+    
+}
+
 .card-header{
-    text-align: center;
+    text-align: center; 
 }
 
 .card-body{

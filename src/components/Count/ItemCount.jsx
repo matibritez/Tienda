@@ -16,15 +16,13 @@ function ItemCount({stock,initial}){
         console.log(`Compra OK: Has comprado ${count} producto`)
     }
 
-    const reset = () =>{
-        setCount(initial)
-    }
+   
     return(
         <div>
-            <h2>la cantidad  es ={count}</h2>
+            <h2>{count}</h2>
             <button onClick={agregar}>+</button>
             <button onClick={onAdd}>Agregar a Carrito</button>
-            <button onClick={reset}>reset</button>
+            
             <button onClick={disminuir}>-</button>
 
         </div>
