@@ -1,4 +1,5 @@
 import ItemCount from "../Count/ItemCount"
+import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad"
 
 const ItemDetail =({producto})=>{
 
@@ -15,7 +16,9 @@ const ItemDetail =({producto})=>{
             <h3>Stock:{producto.stock}</h3>
             <h4>Precio:${producto.price}</h4>
             <ItemCount initial={1} stock={9} onAdd={onAdd}/>
+            <Intercambiabilidad/>
         </div>
+       
     </div>
 
     )
