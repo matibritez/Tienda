@@ -7,7 +7,7 @@ import ItemListenContainer from "./components/ItemListenContainer/ItemListenCont
 import Cart from "./components/Cart/Cart";
 // import ItemCount from "./components/Count/ItemCount";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import { CartContextProvider } from "./contexts/cartContext";
+import { CartContextProvider } from "./components/contexts/cartContext"
 
 function App(){
   return(

@@ -1,17 +1,19 @@
 import ItemCount from "../Count/ItemCount"
-import { useContext } from "react"
-import { CartContext } from "../../CartContext/CartContext"
-// import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad"
+import { useCartContext } from "../contexts/cartContext"
+
+import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad"
 
 const ItemDetail = ({producto}) =>{
-    const {cart, addToCart} = useContext(CartContext)
-
+    const { cart, addToCart } = useCartContext()
+   
     const onAdd = (cant) => {
         console.log(cant)
-        addToCart ( {... producto, cantidad:cant} )
+        
+        addToCart( {...producto, cantidad: cant} )
     }
 
-   console.log(cart)
+    console.log(cart)
+
     return(
         <div className="d-flex">
         <div className="cold-md-6">
@@ -22,6 +24,8 @@ const ItemDetail = ({producto}) =>{
             <h3>Stock:{producto.stock}</h3>
             <h4>Precio:${producto.price}</h4>
             <ItemCount initial={1} stock={9} onAdd={onAdd}/>
+            <Intercambiabilidad/>
+           
             
         </div>
        
