@@ -7,10 +7,12 @@ import ItemListenContainer from "./components/ItemListenContainer/ItemListenCont
 import Cart from "./components/Cart/Cart";
 // import ItemCount from "./components/Count/ItemCount";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { CartContextProvider } from "./contexts/cartContext";
 
 function App(){
   return(
-    <>
+      <CartContextProvider>
+      <>
     <BrowserRouter>
         <NavBar/>
         <Routes>
@@ -25,7 +27,9 @@ function App(){
         
     </BrowserRouter>
     </>
+    </CartContextProvider>
   )
+  
 }
 
 export default App

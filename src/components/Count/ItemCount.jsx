@@ -12,13 +12,17 @@ function ItemCount({stock,initial}){
         count > 1 ? setCount(count-1): alert("No puedes quitar mas productos")
     }
 
-    
+    function onAdd(){
+        console.log(`Compra OK: Has comprado ${count} producto`)
+    }
 
    
     return(
         <div>
-            <h4 className="contad">{count}</h4>
+            <h2>{count}</h2>
             <button className="btn btn-success"  onClick={agregar}>+</button>
+            <button onClick={onAdd}>Agregar a Carrito</button>
+            
             <button className="btn btn-danger" onClick={disminuir}>-</button>
 
         </div>
