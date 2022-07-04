@@ -1,7 +1,8 @@
 import {useEffect, useState } from "react"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
-import {getFetchOne} from "../../helpers/getFetch"
+import {getFetch,getFetchOne} from "../../helpers/getFetch"
+
 
 const ItemDetailContainer = () => {
     const[producto,setProducto]= useState({})
@@ -11,13 +12,16 @@ const ItemDetailContainer = () => {
     console.log(id)
 
     useEffect(() => {
-        getFetchOne(id)
-            .then((resp)=>setProducto(resp.find(prod => prod.id === id)))
+        getFetch(id)
+            .then((resp)=>setProducto(resp))
             .catch(err=>console.log(err))
        }, [])
        
   return (
+        <div>
         <ItemDetail producto={producto} />
+        
+        </div>
   )
 }
 

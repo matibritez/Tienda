@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 import {Link} from "react-router-dom"
 
 
+
+
+
 function Item({ productos }){
+   
     return (
       <div            
       className='cards col-md-4 d-inline-block '                                                           

@@ -1,37 +1,68 @@
-import ItemCount from "../Count/ItemCount"
-import { useCartContext } from "../contexts/cartContext"
+import {useState} from 'react'
+import { Table, Container, Button } from 'react-bootstrap'
+import ItemCount from "../ButtonCount/ButtonCount"
+import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
+const ItemDetail = ({productos }) => {
+  
+  
+  const [addedToCart, setAddedToCart] = useState(false)
+  
+  return (
+    <div>
+      <Container >
 
-import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad"
+        <h1 className="text-center mb-5 mt-5">Detalle del Producto</h1>
 
-const ItemDetail = ({producto}) =>{
-    const { cart, addToCart } = useCartContext()
-   
-    const onAdd = (cant) => {
-        console.log(cant)
-        
-        addToCart( {...producto, cantidad: cant} )
-    }
-
-    console.log(cart)
-
-    return(
-        <div className="d-flex">
-        <div className="cold-md-6">
-            <img src={producto.img} alt="" className="w-65"/>
-        </div>
-        <div className="row mt-5">
-            <h2>Nombre:{producto.nombre}</h2>
-            <h3>Stock:{producto.stock}</h3>
-            <h4>Precio:${producto.price}</h4>
-            <ItemCount initial={1} stock={9} onAdd={onAdd}/>
-            <Intercambiabilidad/>
-           
+        <div className="detail-content d-flex flex-column align-items-center m-3">
+          <div className="d-flex flex-column justify-content-center align-items-center mb-5 imagen">
+            <img src={data.img} alt={data.name} />
+          </div>
+          <div className="d-flex flex-column">
+            <Table className='mt-1' striped bordered hover variant="dark">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Año</th>
+                  <th>Precio</th>
+                  <th>Genero</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{producto.nombr}</td>
+                  <td>{producto.price}</td>
+                  <td>{producto.categoria}</td>
+                </tr>
+              </tbody>
+            </Table>
             
-        </div>
-       
-    </div>
+            { addedToCart ? <>
+              <Link className="btn btn-danger" to="/carrito"> Ir al Carrito </Link> 
+            </>
+              : 
+                          
+              <ItemCount data={data} onAdd={setAddedToCart}  max={5} min={1} />
+            
 
-    )
+            }
+            
+            <div className="d-flex justify-content-center mt-3">
+              <LinkContainer to="/">
+                              <Button className="m-2 boton-mirando" variant="secondary">
+                                  Seguir Mirando
+                              </Button>
+              </LinkContainer>
+            </div> 
+
+          </div>
+
+        </div>
+        <div className="mb-5 mt-5 d-flex justify-content-center  align-items-center botones">
+        </div>
+      </Container>
+    </div>
+  )
 }
 
 export default ItemDetail
