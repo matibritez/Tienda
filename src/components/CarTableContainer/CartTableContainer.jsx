@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container, Table, Button } from 'react-bootstrap'
 import { useCartContext } from '../../context/CartContext'
-import CartTable from '../CartTable/CartTable'
+import CartTable from "../CarTable/CarTable"
 
 const CartTableContainer = () => {
-    const { cartList, totalPrice, clearList } = useCartContext()
+    const { cart,totalPrice,clearList } = useCartContext()
 
     return (
         <Container>
@@ -16,22 +16,23 @@ const CartTableContainer = () => {
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Borrar</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                 
                     {
-                         cartList.map((item) => ( <CartTable item={item} key={item.product.id} /> ))
+                         cart.map((producto) => ( <CartTable producto={producto} key={producto.id} /> ))
                     }
 
                 </tbody>
                 <tbody>
                     <tr>
-                        <th>Total: $ {totalPrice()}</th>
+                       <th>Total : ${totalPrice()}</th>
                     </tr>
                 </tbody>
             </Table>
-                <Button variant="danger" onClick={clearList }>
+                <Button variant="danger" onClick={clearList}>
                     Borrar Todo
                 </Button>
         </Container>

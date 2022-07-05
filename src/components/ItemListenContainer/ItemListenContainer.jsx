@@ -1,9 +1,10 @@
 // import Titulo from "./Titulo/Titulo"
 
-import { getFetch } from "../../helpers/getFetch"
+
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList/ItemList"
 import { useParams } from "react-router-dom"
+import {collection,getDocs, getFirestore,query,where} from "firebase/firestore"
 
 const ItemListenContainer =() => {
     const[productos,setProductos]= useState([])
@@ -11,29 +12,28 @@ const ItemListenContainer =() => {
     
     const {categoriaId} = useParams()
 
-    console.log(categoriaId)
-
-    
+   
     useEffect(()=>{
+        const db = getFirestore()
+        const queryCollection = collection(db,"productos")
+       
         if (categoriaId) {
-            getFetch()
-            .then((resp)=> {
-                    setProductos(resp.filter(producto => producto.categoria === categoriaId ))
-                    setLoading(false)
-            })
-            .catch(err => console.log(err))           
+            const queryCollectionFilter = query( queryCollection, where( 'categoria', '==', categoriaId ) ) 
+            getDocs(queryCollectionFilter)
+            .then( data => setProductos( data.docs.map( producto => ( { id: producto.id, ...producto.data() } )  ) ) )
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+
         } else {
-            getFetch()
-            .then( (resp)=> setProductos(resp) )
-            .catch(err => console.log(err)) 
-            .finally(()=> setLoading(false))           
+           
+            getDocs(queryCollection)
+            .then( data => setProductos( data.docs.map( producto => ( { id: producto.id, ...producto.data() } )  ) ) )
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
         }
         
-       
-    }, [categoriaId])
-
-   
-    return(
+    }, [categoriaId]) 
+        return(
         <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
             { loading ?
             <h1>Cargando</h1>

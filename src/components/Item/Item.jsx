@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React from "react";
 import {Link} from "react-router-dom"
 
 
@@ -22,7 +22,7 @@ function Item({ productos }){
                     <Link to ={`/detalle/${productos.id}`}>
                     <button className="btn btn-outline-primary btn-block">
                         Ver Detalle
-                    </button>   
+                     </button>   
                     </Link>           
                 </div>
 

@@ -6,52 +6,50 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartContextProvider = ({ children }) => {
   
-  const [cartList, setCartList] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const addToCart = (objProduct) => {
     
-    let carritoprevio = [...cartList];
+    let carritoprevio = [...cart];
     
-    if (carritoprevio.some((item) => item.product.id === objProduct.product.id)) 
+    if (carritoprevio.some((producto) =>producto.product.id === objProduct.product.id)) 
     {
-      carritoprevio.find((item) => item.product.id === objProduct.product.id).quantity += objProduct.quantity;
-      setCartList(carritoprevio);
+      carritoprevio.find((producto) =>producto.product.id === objProduct.product.id).quantity += objProduct.quantity;
+      setCart(carritoprevio);
     } else {
-      setCartList([...cartList, objProduct]);
+      setCart([...cart, objProduct]);
     }
    
-  };
-
-  // console.log(cartList)
-  const clearList = () => setCartList([]);
+  }
+  const clearList = () => setCart([]);
 
   const totalPrice = () => {
     let total = 0;
 
-    cartList.forEach((newProduct) => {
+    cart.forEach((newProduct) => {
       total +=
         parseInt(newProduct.product.price) * parseInt(newProduct.quantity);
     });
 
     return parseInt(total);
   };
-
   const removeProduct = (id) => {
-    setCartList(cartList.filter((newProduct) => newProduct.product.id !== id));
+    setCart
+    (cart.filter((newProduct) => newProduct.id !== id));
   };
-
-  const iconCart = () => cartList.reduce((acum, valor) => acum + valor.quantity, 0);
+ 
+  const iconCart = () => cart.reduce((acum, valor) => acum + valor.quantity, 0);
 
 
   return (
     <CartContext.Provider
       value={{
-        cartList,
-        setCartList,
+        cart,
+        setCart,
         addToCart,
         clearList,
-        totalPrice,
         removeProduct,
+        totalPrice,
         iconCart,
       }}
     >

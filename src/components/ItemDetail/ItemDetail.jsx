@@ -1,10 +1,11 @@
 import {useState} from 'react'
 import { Table, Container, Button } from 'react-bootstrap'
-import ItemCount from "../ButtonCount/ButtonCount"
+import ItemCount from "../ItemCount/ItemCount"
+
 import { LinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router-dom'
-const ItemDetail = ({productos }) => {
-  
+const ItemDetail = ({producto }) => {
+  // console.log(data)
   
   const [addedToCart, setAddedToCart] = useState(false)
   
@@ -16,33 +17,32 @@ const ItemDetail = ({productos }) => {
 
         <div className="detail-content d-flex flex-column align-items-center m-3">
           <div className="d-flex flex-column justify-content-center align-items-center mb-5 imagen">
-            <img src={data.img} alt={data.name} />
+            <img width={350} src={producto.img} alt={producto.nombre} />
           </div>
           <div className="d-flex flex-column">
             <Table className='mt-1' striped bordered hover variant="dark">
               <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Año</th>
                   <th>Precio</th>
-                  <th>Genero</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{producto.nombr}</td>
-                  <td>{producto.price}</td>
-                  <td>{producto.categoria}</td>
+                  <td>{producto.nombre}</td>
+                  
+                  <td>${producto.price}</td>
+                  
                 </tr>
               </tbody>
             </Table>
             
             { addedToCart ? <>
-              <Link className="btn btn-danger" to="/carrito"> Ir al Carrito </Link> 
+              <Link className="btn btn-danger" to="/cart"> Ir al Carrito </Link> 
             </>
               : 
                           
-              <ItemCount data={data} onAdd={setAddedToCart}  max={5} min={1} />
+              <ItemCount producto={producto} onAdd={setAddedToCart}min={1} max={producto.stock}/>
             
 
             }
@@ -50,7 +50,7 @@ const ItemDetail = ({productos }) => {
             <div className="d-flex justify-content-center mt-3">
               <LinkContainer to="/">
                               <Button className="m-2 boton-mirando" variant="secondary">
-                                  Seguir Mirando
+                                  Seguir Comprando
                               </Button>
               </LinkContainer>
             </div> 

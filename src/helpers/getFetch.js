@@ -8,11 +8,11 @@ let productos=[
         categoria:"motorola"
     },
     {
-        id:"2",
+        id:"KhfeETW3RGLQtOWoGv",
         nombre: "Samsung a22",
         price: 41000,
         img: "https://www.cetrogar.com.ar/media/catalog/product/t/e/te2755-1.jpg?width=500&height=500&canvas=500:500&quality=80&bg-color=255,255,255&fit=bounds",
-        stock:6,
+        stock:0,
         categoria:"samsung"
     },
     {
@@ -28,7 +28,7 @@ let productos=[
         nombre:"Samsung ZFfold2",
         price: 138999,
         img:"https://www.cetrogar.com.ar/media/catalog/product/t/e/te2665-1.jpg?width=500&height=500&canvas=500:500&quality=80&bg-color=255,255,255&fit=bounds://tienda.movistar.com.ar/media/catalog/product/cache/29ccbb5c02aec1862b4f5a57a55d0f2f/s/m/sm-f711_zflip3_openfront_phantomblack_4_1.png",
-        stock:5,
+        stock:0,
         categoria:"samsung"
     },
     {

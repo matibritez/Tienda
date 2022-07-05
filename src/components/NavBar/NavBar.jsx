@@ -4,8 +4,9 @@ import {Link,NavLink} from "react-router-dom"
 
 
 function navBar(){
+    
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg">
             <Container>
                 <NavLink to="/">Tienda De celulares</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,7 +20,7 @@ function navBar(){
                 </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
-                <Link to="/cart"><CartWidget/></Link>
+                <Link to="/cart"><CartWidget /></Link>
             </Container>
         </Navbar>
     )
