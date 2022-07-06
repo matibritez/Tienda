@@ -1,4 +1,4 @@
-// import Titulo from "./Titulo/Titulo"
+
 
 
 import { useEffect, useState } from "react"
@@ -10,7 +10,7 @@ const ItemListenContainer =() => {
     const[productos,setProductos]= useState([])
     const[loading,setLoading]= useState(true)
     
-    const {categoriaId} = useParams()
+    const { categoriaId } = useParams() 
 
    
     useEffect(()=>{
@@ -34,14 +34,19 @@ const ItemListenContainer =() => {
         
     }, [categoriaId]) 
         return(
-        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-            { loading ?
-            <h1>Cargando</h1>
+            <div>
+                { loading ?
+                <h1>Cargando</h1>
             :
+            <> 
+            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+           
+           
             <ItemList productos={productos}/> 
-            }
-
-        </div>
+           </div>
+          </>
+        }
+    </div>
        
     )
 

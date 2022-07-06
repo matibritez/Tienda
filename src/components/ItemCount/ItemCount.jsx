@@ -28,7 +28,7 @@ const ItemCount = ({min, max,  data , onAdd,producto}) => {
     function handleSubmit(){
         addToCart({
             quantity: count,
-            producto: data
+            producto: producto
         })
         onAdd(true)
         

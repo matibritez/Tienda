@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import { Table, Container, Button } from 'react-bootstrap'
 import ItemCount from "../ItemCount/ItemCount"
-
 import { LinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router-dom'
+
 const ItemDetail = ({producto }) => {
-  // console.log(data)
+  
   
   const [addedToCart, setAddedToCart] = useState(false)
   
@@ -42,7 +42,7 @@ const ItemDetail = ({producto }) => {
             </>
               : 
                           
-              <ItemCount producto={producto} onAdd={setAddedToCart}min={1} max={producto.stock}/>
+              <ItemCount producto={producto} onAdd={setAddedToCart} min={1} max={producto.stock}/>
             
 
             }
