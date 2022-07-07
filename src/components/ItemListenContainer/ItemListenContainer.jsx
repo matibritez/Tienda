@@ -1,6 +1,3 @@
-
-
-
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList/ItemList"
 import { useParams } from "react-router-dom"
@@ -10,7 +7,7 @@ const ItemListenContainer =() => {
     const[productos,setProductos]= useState([])
     const[loading,setLoading]= useState(true)
     
-    const { categoriaId } = useParams() 
+    const {categoriaId} = useParams()
 
    
     useEffect(()=>{
@@ -34,19 +31,14 @@ const ItemListenContainer =() => {
         
     }, [categoriaId]) 
         return(
-            <div>
-                { loading ?
-                <h1>Cargando</h1>
+        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+            { loading ?
+            <h1>Cargando</h1>
             :
-            <> 
-            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-           
-           
             <ItemList productos={productos}/> 
-           </div>
-          </>
-        }
-    </div>
+            }
+
+        </div>
        
     )
 

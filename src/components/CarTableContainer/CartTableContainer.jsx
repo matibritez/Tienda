@@ -21,10 +21,6 @@ const CartTableContainer = () => {
                 </thead>
                 <tbody>
                 
-                    {
-                         cart.map((producto) => ( <CartTable producto={producto} key={producto.id} /> ))
-                    }
-
                 </tbody>
                 <tbody>
                     <tr>

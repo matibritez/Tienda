@@ -34,7 +34,8 @@ export const CartContextProvider = ({ children }) => {
     return parseInt(total);
   };
   const removeProduct = (id) => {
-    setCart(cart.filter((newProduct) => newProduct.id !== id));
+    setCart
+    (cart.filter((newProduct) => newProduct.id !== id));
   };
  
   const iconCart = () => cart.reduce((acum, valor) => acum + valor.quantity, 0);
