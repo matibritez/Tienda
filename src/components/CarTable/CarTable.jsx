@@ -2,7 +2,7 @@ import {Button} from 'react-bootstrap'
 import { useCartContext } from '../../context/CartContext'
 
 const CartTable = ({producto}) => {
-    const { removeProduct } = useCartContext()
+    const { removeProduct} = useCartContext()
     
     return (
                         <tr>
@@ -14,7 +14,8 @@ const CartTable = ({producto}) => {
                                 X
                             </Button></td>  
                         </tr>
-  )
+                        
+  )                         
 }
 
 export default CartTable

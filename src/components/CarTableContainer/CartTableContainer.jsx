@@ -4,7 +4,7 @@ import { useCartContext } from '../../context/CartContext'
 import CartTable from "../CarTable/CarTable"
 
 const CartTableContainer = () => {
-    const { cart,totalPrice,clearList } = useCartContext()
+    const { cart,totalPrice,clearList,generarOrden } = useCartContext()
 
     return (
         <Container>
@@ -20,7 +20,8 @@ const CartTableContainer = () => {
                     </tr>
                 </thead>
                 <tbody>
-                
+                    {cart.map((producto) => ( <CartTable producto={producto} key={producto.id} /> ))}
+                        
                 </tbody>
                 <tbody>
                     <tr>
@@ -31,6 +32,7 @@ const CartTableContainer = () => {
                 <Button variant="danger" onClick={clearList}>
                     Borrar Todo
                 </Button>
+                <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
         </Container>
 
 

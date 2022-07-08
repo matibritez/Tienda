@@ -11,11 +11,12 @@ export const CartContextProvider = ({ children }) => {
   const addToCart = (objProduct) => {
     
     let carritoprevio = [...cart];
+    console.log(carritoprevio)
     
-    if (carritoprevio.some((producto) =>producto.product.id === objProduct.product.id)) 
+    if (carritoprevio.some((producto) =>producto.id === objProduct.id)) 
     {
-      carritoprevio.find((producto) =>producto.product.id === objProduct.product.id).quantity += objProduct.quantity;
-      setCart(carritoprevio);
+      carritoprevio.find((producto) =>producto.id === objProduct.id).cantidad += objProduct.cantidad;
+      setCart([...carritoprevio]);
     } else {
       setCart([...cart, objProduct]);
     }
@@ -28,14 +29,13 @@ export const CartContextProvider = ({ children }) => {
 
     cart.forEach((newProduct) => {
       total +=
-        parseInt(newProduct.product.price) * parseInt(newProduct.quantity);
+        parseInt(newProduct.price) * parseInt(newProduct.quantity);
     });
 
     return parseInt(total);
   };
   const removeProduct = (id) => {
-    setCart
-    (cart.filter((newProduct) => newProduct.id !== id));
+    setCart(cart.filter((newProduct) => newProduct.id !== id));
   };
  
   const iconCart = () => cart.reduce((acum, valor) => acum + valor.quantity, 0);
