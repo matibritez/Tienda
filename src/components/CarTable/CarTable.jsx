@@ -6,10 +6,10 @@ const CartTable = ({producto}) => {
     
     return (
                         <tr>
-                            <td>{producto.img}</td>
-                            <td>{producto.nombre}</td>
+                            <td><img style={{width: "100px", height:"100px"}} src={producto.producto.img}/></td>
+                            <td>{producto.producto.nombre}</td>
                             <td>{producto.quantity}</td>
-                            <td>$ {producto.price}</td>
+                            <td>$ {producto.producto.price}</td>
                             <td><Button variant="danger" onClick={()=>{removeProduct(producto.id)}}>
                                 X
                             </Button></td>  

@@ -4,9 +4,9 @@ import { useCartContext } from '../../context/CartContext'
 import CartTableContainer from "../CarTableContainer/CartTableContainer"
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore"
 
-const CartView = () => {
+const Cart = () => {
   const {cart,clearList,totalPrice}= useCartContext()
-  async function generarOrden(e) {
+    async function generarOrden(e) {
       e.preventDefault()
       let orden = {}     
       
@@ -22,13 +22,13 @@ const CartView = () => {
       })    
       
       const db = getFirestore()
-      const orderCollection = collection(db, 'orders')
+      const orderCollection = collection(db, 'hellow')
       addDoc(orderCollection, orden)
       .then(resp => console.log(resp.id) )
   
   
       
-       const queryCollectionStock = collection(db, 'productos')
+       const queryCollectionStock = collection(db, 'hellow')
   
        const queryActulizarStock = await query(
            queryCollectionStock, 
@@ -61,7 +61,9 @@ const CartView = () => {
            <h1 className='text-center'>Carrito de Compras</h1>
            <CartTableContainer/>
            
+           <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
           </div>
+          
       }
 
 
@@ -71,4 +73,4 @@ const CartView = () => {
   )
 }
 
-export default CartView
+export default Cart

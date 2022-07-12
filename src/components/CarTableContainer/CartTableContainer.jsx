@@ -4,7 +4,7 @@ import { useCartContext } from '../../context/CartContext'
 import CartTable from "../CarTable/CarTable"
 
 const CartTableContainer = () => {
-    const { cart,totalPrice,clearList,generarOrden } = useCartContext()
+    const { cart,totalPrice,clearList} = useCartContext()
 
     return (
         <Container>
@@ -32,7 +32,7 @@ const CartTableContainer = () => {
                 <Button variant="danger" onClick={clearList}>
                     Borrar Todo
                 </Button>
-                <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
+                
         </Container>
 
 
