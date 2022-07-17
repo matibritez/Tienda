@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         const db = getFirestore()
         const queryItem = doc(db, 'productos', id ) 
-        getDoc(queryItem) // promesa
+        getDoc(queryItem)
         .then(resp => setProducto( { id: resp.id, ...resp.data() } ))
         .catch(err => console.log(err))
         .finally(() => setLoading(false))

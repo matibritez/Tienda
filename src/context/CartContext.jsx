@@ -8,32 +8,20 @@ export const CartContextProvider = ({ children }) => {
   
   const [cart, setCart] = useState([]);
 
-  const addToCart = (objProduct) => {
-    
-    let carritoprevio = [...cart];
-    console.log(carritoprevio)
-    
-    if (carritoprevio.some((producto) =>producto.id === objProduct.id)) 
-    {
-      carritoprevio.find((producto) =>producto.id === objProduct.id).cantidad += objProduct.cantidad;
-      setCart([...carritoprevio]);
-    } else {
-      setCart([...cart, objProduct]);
-    }
-   
-  }
+  const addToCart = (producto) => {
+  setCart([
+    ...cart,
+    producto
+  ])
+
+}
+console.log(cart)
+  
   const clearList = () => setCart([]);
 
   const totalPrice = () => {
-    let total = 0;
-
-    cart.forEach((newProduct) => {
-      total +=
-        parseInt(newProduct.price) * parseInt(newProduct.quantity);
-    });
-
-    return parseInt(total);
-  };
+    return cart.reduce((contador,producto)=>contador + (producto.price * producto.cantidad),0)
+  }
   const removeProduct = (id) => {
     setCart(cart.filter((newProduct) => newProduct.id !== id));
   };
@@ -55,5 +43,5 @@ export const CartContextProvider = ({ children }) => {
     >
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}
