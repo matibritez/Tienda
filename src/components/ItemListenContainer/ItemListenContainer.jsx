@@ -14,20 +14,14 @@ const ItemListenContainer =() => {
         const db = getFirestore()
         const queryCollection = collection(db,"productos")
        
-        if (categoriaId) {
-            const queryCollectionFilter = query( queryCollection, where( 'categoria', '==', categoriaId ) ) 
+       
+            const queryCollectionFilter = categoriaId ?query( queryCollection, where( 'categoria', '==', categoriaId ) ) : queryCollection
             getDocs(queryCollectionFilter)
             .then( data => setProductos( data.docs.map( producto => ( { id: producto.id, ...producto.data() } )  ) ) )
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
 
-        } else {
-           
-            getDocs(queryCollection)
-            .then( data => setProductos( data.docs.map( producto => ( { id: producto.id, ...producto.data() } )  ) ) )
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-        }
+        
         
     }, [categoriaId]) 
         return(
