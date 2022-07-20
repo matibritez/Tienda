@@ -13,9 +13,9 @@ export const CartContextProvider = ({ children }) => {
     let carritoprevio = [...cart];
     
       
-    if (carritoprevio.some((producto) => producto.producto.id === objProduct.id))
+    if (carritoprevio.some((producto) => producto.producto.id === objProduct.producto.id))
     {
-      carritoprevio.find((producto) => producto.id === objProduct.id).quantity+= objProduct.quantity;
+      carritoprevio.find((producto) => producto.producto.id === objProduct.producto.id).quantity += objProduct.quantity;
       setCart([...carritoprevio]);
     } else { 
       setCart([...cart, objProduct]);

@@ -39,8 +39,9 @@ const ItemCount = ({min, max,  data , onAdd,producto}) => {
         <div className="d-flex justify-content-center">
             <Card bg="dark" text="light" style={{ width: '18rem' }}>
                 <Card.Body>
-                    <Card.Title className="text-center">Cantidad : {count}</Card.Title>
-                    <Card.Title className="text-center"><TextComponent/>{producto.stock}</Card.Title>
+                    
+                    <Card.Title className="text-center"><TextComponent/></Card.Title>
+                    <Card.Title className="text-center">Cantidad :{count}</Card.Title>
                     <div className="d-flex justify-content-center botones-contador">
                     <Button variant="danger" onClick={substraction}>-</Button>
                     <Button variant="danger" onClick={reset}>Reset</Button>

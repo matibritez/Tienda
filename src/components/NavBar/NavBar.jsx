@@ -6,7 +6,7 @@ import {Link,NavLink} from "react-router-dom"
 function navBar(){
     
     return(
-        <Navbar bg="dark" expand="lg">
+        <Navbar className="navbar" bg="dark" expand="lg">
             <Container>
                 <NavLink to="/">Tienda De celulares</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -32,7 +32,7 @@ const Cart = () => {
   return (
       <Container>
       {
-        setCart.length === 0 ? 
+        setCart.length === 0 ?
         <div className=" d-flex justify-content-center flex-column align-items-center mt-5">
           <h1 className='text-center'>Carrito de Compras</h1>
           <p className="text-center">El carrito esta Vacío</p>
@@ -43,6 +43,8 @@ const Cart = () => {
            <div className="mt-5">
            <h1 className='text-center'>Carrito de Compras</h1>
            <CartTableContainer/>
+           </div>
+  }
            <div className="checkContainer">
     <h6 className="titleCheck">Por favor complete los datos para finalizar su compra</h6>
     <h6 className="orderNumber">Su número de pedido es: {idBuyed}</h6>
@@ -51,9 +53,7 @@ const Cart = () => {
     <input onChange={(e) => setCel(e.target.value)} placeholder="Ingrese un celular" className="inCel"></input>
     <button onClick={() => handleClick()} className='btn btn-warning fw-bold p-2 m-2'>Terminar Compra</button>
       </div>
-    </div>
-}
-</Container>
+   </Container>
   
 )}
 
